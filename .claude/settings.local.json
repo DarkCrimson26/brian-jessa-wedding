@@ -15,7 +15,8 @@
       "mcp__ide__getDiagnostics",
       "Bash(vercel:*)",
       "Bash(npm run build:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
     ],
     "deny": [],
     "ask": []

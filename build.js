@@ -1,25 +1,37 @@
 #!/usr/bin/env node
 
-const { execSync } = require('child_process');
+const { spawn } = require('child_process');
 const path = require('path');
 
 console.log('🔨 Starting build process...');
 
 try {
-  // Change to the project directory
-  const projectDir = __dirname;
-  process.chdir(projectDir);
+  // Get the path to the Next.js binary
+  const nextPath = path.join(__dirname, 'node_modules', 'next', 'dist', 'bin', 'next');
   
-  console.log('📁 Project directory:', projectDir);
+  console.log('📁 Next.js path:', nextPath);
+  console.log('🚀 Running Next.js build...');
   
   // Run the build command
-  console.log('🚀 Running Next.js build...');
-  execSync('npx next build', { 
+  const buildProcess = spawn('node', [nextPath, 'build'], {
     stdio: 'inherit',
-    cwd: projectDir
+    cwd: __dirname
   });
   
-  console.log('✅ Build completed successfully!');
+  buildProcess.on('close', (code) => {
+    if (code === 0) {
+      console.log('✅ Build completed successfully!');
+    } else {
+      console.error('❌ Build failed with code:', code);
+      process.exit(code);
+    }
+  });
+  
+  buildProcess.on('error', (error) => {
+    console.error('❌ Build process error:', error);
+    process.exit(1);
+  });
+  
 } catch (error) {
   console.error('❌ Build failed:', error.message);
   process.exit(1);
