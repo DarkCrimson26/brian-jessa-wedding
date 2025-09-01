@@ -1,0 +1,504 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alice&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Alice", "Crimson Text", serif;
+  background-color: #ffffff; /* Set to plain white */
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Custom Wedding Styles */
+.font-script {
+  font-family: "Great Vibes", "Dancing Script", "Alice", cursive;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-style: normal;
+}
+
+.font-serif-elegant {
+  font-family: "Alice", "Playfair Display", serif;
+}
+
+.font-body {
+  font-family: "Alice", "Crimson Text", serif;
+}
+
+.font-tan-aegean {
+  font-family: "Alice", "Crimson Text", serif;
+}
+
+.font-alice {
+  font-family: "Alice", "Crimson Text", serif;
+}
+
+.font-elegant-serif {
+  font-family: "Alice", "Georgia", "Times New Roman", serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #2d3748;
+  font-style: normal;
+}
+
+/* Explicitly setting these backgrounds to white */
+.bg-wedding-cream {
+  background: #ffffff;
+}
+
+.text-dusty-pink {
+  color: #c27884; /* Updated main accent color */
+}
+
+.text-mauve {
+  color: #9e7a9b; /* Updated mauve color */
+}
+
+.text-wedding-charcoal {
+  color: #2d3748;
+}
+
+.text-wedding-name-pink {
+  color: #C1838E;
+}
+
+.bg-dusty-pink {
+  background: linear-gradient(135deg, #c27884 0%, #b56785 100%); /* Updated main accent color */
+}
+
+.bg-mauve {
+  background: linear-gradient(135deg, #9e7a9b 0%, #8a506b 100%); /* Updated mauve color */
+}
+
+/* Elegant Divider */
+.elegant-divider {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.elegant-divider::before {
+  content: "";
+  width: 30px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #c27884, transparent); /* Updated main accent color */
+  margin-right: 10px;
+}
+
+.elegant-divider::after {
+  content: "";
+  width: 30px;
+  height: 1px;
+  background: linear-gradient(to left, transparent, #c27884, transparent); /* Updated main accent color */
+  margin-left: 10px;
+}
+
+/* Elegant Sidebar Styling */
+.elegant-sidebar {
+  background: linear-gradient(180deg, #ffffff 0%, #fefefe 50%, #fdfdfd 100%);
+  box-shadow: 0 0 40px rgba(194, 120, 132, 0.1);
+  border-right: 1px solid rgba(194, 120, 132, 0.15);
+}
+
+.elegant-sidebar-header {
+  background: linear-gradient(135deg, #faf9f8 0%, #f8f6f4 100%);
+  border-bottom: 1px solid rgba(194, 120, 132, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.elegant-sidebar-header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* Removed floral pattern from sidebar header */
+  background-image: none;
+}
+
+.elegant-nav-button {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.elegant-nav-button:hover {
+  transform: translateX(4px);
+  box-shadow: 0 4px 12px rgba(194, 120, 132, 0.15);
+}
+
+.elegant-nav-button.active {
+  background: linear-gradient(135deg, #9e7a9b 0%, #8a506b 100%); /* Updated to mauve */
+  box-shadow: 0 6px 20px rgba(158, 122, 155, 0.3); /* Updated shadow color */
+}
+
+.elegant-save-date {
+  background: linear-gradient(135deg, #faf9f8 0%, #f8f6f4 100%);
+  border-top: 1px solid rgba(194, 120, 132, 0.1);
+  position: relative;
+}
+
+.elegant-save-date::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 40px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 40' fill='none'%3E%3Cg opacity='0.2'%3E%3Cpath d='M40 10c0-8 8-15 15-12 7 3 10 12 5 18-5 6-15 4-18-2-3-6 0-12-2-4z' fill='%23C27884'/%3E%3Cpath d='M40 15c0-5 5-9 9-7 4 2 6 7 3 10-3 3-9 2-11-1-2-3 0-7-1-2z' fill='%239E7A9B'/%3E%3Cpath d='M40 20c0-3 3-6 6-5 3 1 4 5 2 7-2 2-6 1-7-1-1-2 0-4-1-1z' fill='%23F0E6E8'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+/* Enhanced Card Styling */
+.elegant-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(254, 254, 254, 0.9) 100%);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(194, 120, 132, 0.1); /* Updated border color */
+  box-shadow: 0 8px 32px rgba(194, 120, 132, 0.1); /* Updated shadow color */
+}
+
+/* Arch-shaped invitation style */
+.invitation-arch {
+  background: linear-gradient(135deg, #9e7a9b 0%, #c27884 100%); /* Updated colors */
+  border-radius: 50px 50px 20px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.invitation-arch::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(158, 122, 155, 0.9) 0%, rgba(194, 120, 132, 0.9) 100%); /* Updated overlay color */
+  border-radius: inherit;
+}
+
+/* Update page backgrounds to light cream */
+.bg-dusty-pink-page {
+  background: #ffffff; /* Set to plain white */
+}
+
+/* Elegant divider styles */
+.elegant-dusty-pink-divider {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.elegant-dusty-pink-divider::before {
+  content: "";
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #c27884, transparent);
+  margin-right: 15px;
+}
+
+.elegant-dusty-pink-divider::after {
+  content: "";
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(to left, transparent, #c27884, transparent);
+  margin-left: 15px;
+}
+
+.elegant-dusty-pink-divider-icon {
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle, #c27884 30%, transparent 30%);
+  border-radius: 50%;
+  position: relative;
+}
+
+.elegant-dusty-pink-divider-icon::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  background: #c27884;
+  border-radius: 50%;
+}
+
+/* Removed corner decorations */
+/* Removed card decorations */
+
+.wedding-names-heading {
+  font-size: 4rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.wedding-names-serif {
+  font-family: 'Playfair Display', serif;
+  font-size: 1em;
+}
+.wedding-names-script {
+  font-family: 'Great Vibes', cursive;
+  font-size: 1.2em;
+  font-weight: 400;
+}
+
+.invite-names {
+  font-family: 'Bodoni Moda', 'Playfair Display', 'Didot', 'Libre Baskerville', serif;
+  font-size: 3.5rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 1.1;
+}
+.invite-ampersand {
+  font-family: 'Great Vibes', 'Allura', cursive;
+  font-size: 2.5rem;
+  font-weight: 400;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 0.5rem;
+}
+.invite-label {
+  font-family: 'Montserrat', 'Lato', 'Open Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.invite-details {
+  font-family: 'Montserrat', 'Lato', 'Open Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  text-transform: none;
+}
+
+/* Navbar Styles */
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 4rem;
+  background: #fff;
+  font-family: 'Montserrat', 'Lato', 'Open Sans', sans-serif;
+  letter-spacing: 0.08em;
+  max-width: 100%;
+  margin: 0 auto;
+}
+.navbar-section {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+.navbar-center {
+  flex: 1;
+  justify-content: center;
+  display: flex;
+}
+.navbar-logo {
+  font-family: 'Playfair Display', 'Bodoni Moda', serif;
+  font-size: 2.2rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  color: #c27884;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.navbar-logo-new {
+  font-family: 'Tan Aegean', 'Montserrat', 'Arial', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #1e3a8a;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar-logo-script {
+  font-family: 'Great Vibes', 'Dancing Script', cursive;
+  font-size: 2.4rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: #c27884;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-style: italic;
+}
+
+.navbar-logo-tan-aegean {
+  font-family: 'Alice', 'Crimson Text', serif;
+  font-size: 2.4rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: #c27884;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar-link-tan-aegean {
+  font-family: 'Alice', 'Montserrat', 'Arial', sans-serif;
+  color: #C1838E;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 400;
+  transition: color 0.2s;
+}
+
+.navbar-link-tan-aegean:hover {
+  color: #c27884;
+}
+.navbar-link {
+  color: #9e7a9b;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 400;
+  transition: color 0.2s;
+}
+.navbar-link:hover {
+  color: #c27884;
+}
+@media (max-width: 900px) {
+  .navbar-container {
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1.2rem 1rem;
+  }
+  .navbar-section {
+    gap: 1.2rem;
+  }
+  .navbar-logo {
+    font-size: 1.5rem;
+  }
+}
+
+/* Global Content Alignment */
+.max-w-4xl {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.max-w-6xl {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Ensure all main content sections are properly centered */
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* Center all text content */
+.text-center {
+  text-align: center;
+  width: 100%;
+}
+
+/* Ensure proper container alignment */
+.elegant-card {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: 100%;
+}
+
+@layer base {
+  :root {
+    --background: 250 249 248;
+    --foreground: 45 55 72;
+    --card: 255 255 255;
+    --card-foreground: 45 55 72;
+    --popover: 255 255 255;
+    --popover-foreground: 45 55 72;
+    --primary: 194 120 132; /* #C27884 in HSL */
+    --primary-foreground: 255 255 255;
+    --secondary: 250 249 248;
+    --secondary-foreground: 45 55 72;
+    --muted: 250 249 248;
+    --muted-foreground: 107 114 128;
+    --accent: 250 249 248;
+    --accent-foreground: 45 55 72;
+    --destructive: 239 68 68;
+    --destructive-foreground: 255 255 255;
+    --border: 229 231 235;
+    --input: 229 231 235;
+    --ring: 194 120 132; /* #C27884 in HSL */
+    --chart-1: 194 120 132; /* #C27884 in HSL */
+    --chart-2: 250 249 248;
+    --chart-3: 45 55 72;
+    --chart-4: 156 163 175;
+    --chart-5: 209 213 219;
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 45 55 72;
+    --foreground: 250 249 248;
+    --card: 45 55 72;
+    --card-foreground: 250 249 248;
+    --popover: 45 55 72;
+    --popover-foreground: 250 249 248;
+    --primary: 194 120 132; /* #C27884 in HSL */
+    --primary-foreground: 255 255 255;
+    --secondary: 75 85 99;
+    --secondary-foreground: 250 249 248;
+    --muted: 75 85 99;
+    --muted-foreground: 156 163 175;
+    --accent: 75 85 99;
+    --accent-foreground: 250 249 248;
+    --destructive: 239 68 68;
+    --destructive-foreground: 250 249 248;
+    --border: 75 85 99;
+    --input: 75 85 99;
+    --ring: 194 120 132; /* #C27884 in HSL */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Alice", "Crimson Text", serif;
+  }
+
+  /* Global rule to remove all focus outlines/borders */
+  *:focus {
+    outline: none !important;
+    border-color: transparent !important; /* Ensure no border color changes on focus */
+    box-shadow: none !important;
+  }
+}
