@@ -13,7 +13,9 @@
       "Bash(powershell:*)",
       "Bash(dir)",
       "mcp__ide__getDiagnostics",
-      "Bash(vercel:*)"
+      "Bash(vercel:*)",
+      "Bash(npm run build:*)",
+      "Bash(git add:*)"
     ],
     "deny": [],
     "ask": []
