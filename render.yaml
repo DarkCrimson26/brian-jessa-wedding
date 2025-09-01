@@ -3,7 +3,16 @@ services:
     name: wedding-website
     runtime: node
     plan: free
-    buildCommand: npm install --legacy-peer-deps && npm run build
+    buildCommand: |
+      echo "Current directory: $(pwd)"
+      echo "Listing files:"
+      ls -la
+      echo "Running verification script..."
+      node verify-structure.js
+      echo "Installing dependencies..."
+      npm install --legacy-peer-deps
+      echo "Building project..."
+      npm run build
     startCommand: npm start
     envVars:
       - key: NODE_ENV
