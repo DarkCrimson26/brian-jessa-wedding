@@ -123,6 +123,7 @@ export default function RSVPPage() {
                 ) : (
                   <form onSubmit={handleSubmit(onSubmit)} className="space-y-6" name="rsvp" data-netlify="true" data-netlify-honeypot="bot-field">
                     <input type="hidden" name="form-name" value="rsvp" />
+                    <input type="hidden" name="to" value="briantams31@gmail.com" />
                     <div className="grid md:grid-cols-2 gap-6">
                       <div>
                         <label className="block text-mauve font-alice text-lg mb-2">Name:</label>
