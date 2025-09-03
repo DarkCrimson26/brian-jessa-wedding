@@ -120,21 +120,118 @@ export default function RSVPPage() {
                     </button>
                   </div>
                 ) : (
-                  <div className="text-center py-12">
-                    <h3 className="font-alice text-3xl text-dusty-pink mb-6">RSVP Form</h3>
-                    <p className="font-alice text-lg text-mauve mb-8">
-                      Please click the button below to submit your RSVP
-                    </p>
-                    <a 
-                      href="https://forms.gle/YOUR_GOOGLE_FORM_LINK_HERE" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="inline-block bg-mauve hover:bg-mauve/90 text-white font-alice font-semibold py-4 px-8 rounded-lg tracking-widest uppercase transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2 focus:outline-none"
+                  <form onSubmit={handleSubmit(onSubmit)} className="space-y-6" name="rsvp" data-netlify="true" data-netlify-honeypot="bot-field">
+                    <input type="hidden" name="form-name" value="rsvp" />
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <div>
+                        <label className="block text-mauve font-alice text-lg mb-2">Name:</label>
+                        <input
+                          {...register("name")}
+                          type="text"
+                          className={`w-full border rounded-lg px-4 py-3 font-alice focus:outline-none focus:border-transparent transition-all bg-white/90 text-black ${
+                            errors.name ? 'border-red-500' : 'border-gray-300'
+                          }`}
+                          placeholder="Enter your full name"
+                        />
+                        {errors.name && (
+                          <p className="text-red-500 text-sm mt-1 font-alice">{errors.name.message}</p>
+                        )}
+                      </div>
+                      <div>
+                        <label className="block text-mauve font-alice text-lg mb-2">Contact Number:</label>
+                        <input
+                          {...register("contactNumber")}
+                          type="text"
+                          className={`w-full border rounded-lg px-4 py-3 font-alice focus:outline-none focus:border-transparent transition-all bg-white/90 text-black ${
+                            errors.contactNumber ? 'border-red-500' : 'border-gray-300'
+                          }`}
+                          placeholder="Enter your phone number"
+                        />
+                        {errors.contactNumber && (
+                          <p className="text-red-500 text-sm mt-1 font-alice">{errors.contactNumber.message}</p>
+                        )}
+                      </div>
+                    </div>
+                    <div>
+                      <label className="block text-mauve font-alice text-lg mb-2">Email:</label>
+                      <input
+                        {...register("email")}
+                        type="email"
+                        className={`w-full border rounded-lg px-4 py-3 font-alice focus:outline-none focus:border-transparent transition-all bg-white/90 text-black ${
+                          errors.email ? 'border-red-500' : 'border-gray-300'
+                        }`}
+                        placeholder="Enter your email address"
+                      />
+                      {errors.email && (
+                        <p className="text-red-500 text-sm mt-1 font-alice">{errors.email.message}</p>
+                      )}
+                    </div>
+                    <div>
+                      <label className="block text-mauve font-alice text-lg mb-4">
+                        Are you attending the wedding?
+                      </label>
+                      <div className="flex items-center space-x-6">
+                        <label className="flex items-center font-alice text-lg cursor-pointer">
+                          <input
+                            {...register("attending")}
+                            type="radio"
+                            value="yes"
+                            className="mr-3 w-4 h-4 text-dusty-pink focus:outline-none"
+                          />
+                          <span className="text-mauve">Yes</span>
+                        </label>
+                        <label className="flex items-center font-alice text-lg cursor-pointer">
+                          <input
+                            {...register("attending")}
+                            type="radio"
+                            value="no"
+                            className="mr-3 w-4 h-4 text-dusty-pink focus:outline-none"
+                          />
+                          <span className="text-mauve">No</span>
+                        </label>
+                      </div>
+                      {errors.attending && (
+                        <p className="text-red-500 text-sm mt-1 font-alice">{errors.attending.message}</p>
+                      )}
+                    </div>
+                    <div>
+                      <label className="block text-mauve font-alice text-lg mb-2">Number of Guests:</label>
+                      <select
+                        {...register("numberOfGuests")}
+                        className={`w-full border rounded-lg px-4 py-3 font-alice focus:outline-none focus:border-transparent transition-all bg-white/90 text-black ${
+                          errors.numberOfGuests ? 'border-red-500' : 'border-gray-300'
+                        }`}
+                      >
+                        <option value="">Select number of guests</option>
+                        <option value="1">1 Guest</option>
+                        <option value="2">2 Guests</option>
+                        <option value="3">3 Guests</option>
+                        <option value="4">4 Guests</option>
+                        <option value="5">5+ Guests</option>
+                      </select>
+                      {errors.numberOfGuests && (
+                        <p className="text-red-500 text-sm mt-1 font-alice">{errors.numberOfGuests.message}</p>
+                      )}
+                    </div>
+                    <div>
+                      <label className="block text-mauve font-alice text-lg mb-2">
+                        Special Request(s) / Message:
+                      </label>
+                      <textarea
+                        {...register("message")}
+                        className="w-full border border-gray-300 rounded-lg px-4 py-3 font-alice h-32 resize-none focus:outline-none focus:border-transparent transition-all bg-white/90 text-black"
+                        placeholder="Any dietary restrictions, special requests, or messages for the couple..."
+                      ></textarea>
+                    </div>
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="w-full bg-mauve hover:bg-mauve/90 disabled:bg-gray-400 text-white font-alice font-semibold py-4 rounded-lg mt-6 tracking-widest uppercase transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2 focus:outline-none"
                     >
                       <Send size={20} />
-                      <span>SUBMIT RSVP</span>
-                    </a>
-                  </div>
+                      <span>{isSubmitting ? 'SENDING...' : 'SEND RSVP'}</span>
+                    </button>
+                  </form>
                 )}
               </CardContent>
             </Card>
