@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Form</title>
+</head>
+<body>
+    <h1>Test RSVP Form</h1>
+    <form name="rsvp" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="rsvp" />
+        
+        <p style="display: none;">
+            <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+        </p>
+        
+        <p>
+            <label>Name: <input type="text" name="name" required /></label>
+        </p>
+        
+        <p>
+            <label>Email: <input type="email" name="email" required /></label>
+        </p>
+        
+        <p>
+            <label>Attending: 
+                <select name="attending" required>
+                    <option value="">Select...</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+            </label>
+        </p>
+        
+        <p>
+            <button type="submit">Send RSVP</button>
+        </p>
+    </form>
+</body>
+</html>
