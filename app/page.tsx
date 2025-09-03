@@ -5,6 +5,26 @@ import { motion } from "framer-motion"
 export default function HomePage() {
   return (
     <div className="min-h-screen relative">
+      {/* Hidden form for Netlify Forms detection */}
+      <form name="rsvp" data-netlify="true" data-netlify-honeypot="bot-field" style={{display: 'none'}}>
+        <input type="hidden" name="form-name" value="rsvp" />
+        <input type="hidden" name="bot-field" />
+        <input type="text" name="name" />
+        <input type="email" name="email" />
+        <input type="text" name="contactNumber" />
+        <select name="attending">
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+        <select name="numberOfGuests">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5+</option>
+        </select>
+        <textarea name="message"></textarea>
+      </form>
       {/* Background */}
       <div className="min-h-screen bg-wedding-cream relative"></div>
 
