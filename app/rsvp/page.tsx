@@ -40,39 +40,35 @@ export default function RSVPPage() {
   const onSubmit = async (data: RSVPFormData) => {
     setIsSubmitting(true)
     try {
-      // Use Netlify Forms for form submissions
-      const formData = new FormData()
-      formData.append('form-name', 'rsvp')
-      formData.append('name', data.name)
-      formData.append('contactNumber', data.contactNumber)
-      formData.append('email', data.email)
-      formData.append('attending', data.attending)
-      formData.append('numberOfGuests', data.numberOfGuests)
-      formData.append('message', data.message || '')
-      
-      const response = await fetch('/', {
-        method: 'POST',
-        body: formData,
-      })
+      // Create email content
+      const emailContent = `
+New RSVP from Wedding Website:
 
-      if (response.ok) {
-        setSubmitSuccess(true)
-        reset()
-      } else {
-        let errorData
-        try {
-          errorData = await response.json()
-        } catch (jsonError) {
-          console.error('Invalid JSON response:', jsonError)
-          throw new Error(`Server error (${response.status}): ${response.statusText}`)
-        }
-        console.error('API Error:', errorData)
-        throw new Error(errorData.details || errorData.error || 'Failed to submit RSVP')
-      }
+Name: ${data.name}
+Contact Number: ${data.contactNumber}
+Email: ${data.email}
+Attending: ${data.attending}
+Number of Guests: ${data.numberOfGuests}
+Message: ${data.message || 'No message'}
+
+Submitted on: ${new Date().toLocaleString()}
+      `.trim()
+
+      // Use mailto link to open email client
+      const subject = encodeURIComponent(`New RSVP from ${data.name}`)
+      const body = encodeURIComponent(emailContent)
+      const mailtoLink = `mailto:melvin.bagnes@intouchcx.com?subject=${subject}&body=${body}`
+      
+      // Open email client
+      window.open(mailtoLink)
+      
+      // Show success message
+      setSubmitSuccess(true)
+      reset()
+      
     } catch (error) {
       console.error('RSVP submission error:', error)
-      const errorMessage = error instanceof Error ? error.message : 'Unknown error'
-      alert(`Sorry, there was an error submitting your RSVP: ${errorMessage}. Please try again.`)
+      alert('Sorry, there was an error. Please try again.')
     } finally {
       setIsSubmitting(false)
     }
@@ -120,8 +116,7 @@ export default function RSVPPage() {
                     </button>
                   </div>
                 ) : (
-                  <form onSubmit={handleSubmit(onSubmit)} className="space-y-6" name="rsvp" data-netlify="true" data-netlify-honeypot="bot-field">
-                    <input type="hidden" name="form-name" value="rsvp" />
+                  <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                     <div className="grid md:grid-cols-2 gap-6">
                       <div>
                         <label className="block text-mauve font-alice text-lg mb-2">Name:</label>
