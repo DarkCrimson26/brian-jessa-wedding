@@ -40,11 +40,8 @@ export default function RSVPPage() {
   const onSubmit = async (data: RSVPFormData) => {
     setIsSubmitting(true)
     try {
-      // Use local API in development, Formspree in production
-      const isDevelopment = process.env.NODE_ENV === 'development'
-      const endpoint = isDevelopment 
-        ? '/api/rsvp' 
-        : (process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT || 'https://formspree.io/f/xpzgwqwg')
+      // Use Formspree for form submissions
+      const endpoint = 'https://formspree.io/f/xwpnwegp'
       
       const response = await fetch(endpoint, {
         method: 'POST',
@@ -53,10 +50,8 @@ export default function RSVPPage() {
         },
         body: JSON.stringify({
           ...data,
-          ...(isDevelopment ? {} : {
-            _subject: `New RSVP from ${data.name}`,
-            _captcha: false,
-          }),
+          _subject: `New RSVP from ${data.name}`,
+          _captcha: false,
         }),
       })
 
@@ -94,36 +89,22 @@ export default function RSVPPage() {
         {/* RSVP Section */}
         <section className="py-24 relative min-h-screen bg-wedding-cream">
           <div className="max-w-4xl mx-auto px-6 pt-16 lg:pt-0">
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1 }}
-              className="text-center mb-12"
-            >
+            <div className="text-center mb-12">
               <h1 className="font-tan-aegean text-7xl mb-8 text-dusty-pink">Will You Be Joining Us?</h1>
               <div className="elegant-dusty-pink-divider">
                 <div className="elegant-dusty-pink-divider-icon"></div>
               </div>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.3 }}
-              className="mb-10 text-center font-elegant-serif text-lg space-y-2"
-            >
+            <div className="mb-10 text-center font-elegant-serif text-lg space-y-2">
                      <div className="text-dusty-pink">The Ceremony starts at 09AM</div>
        <div className="text-dusty-pink">Your response is requested before July 15th.</div>
-            </motion.div>
+            </div>
 
             <Card className="elegant-card p-10 relative">
               <CardContent>
                 {submitSuccess ? (
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="text-center py-12"
-                  >
+                  <div className="text-center py-12">
                     <h3 className="font-alice text-3xl text-dusty-pink mb-6">Thank You!</h3>
                     <p className="font-alice text-lg text-mauve mb-4">
                       Your RSVP has been received successfully.
@@ -137,7 +118,7 @@ export default function RSVPPage() {
                     >
                       Submit Another RSVP
                     </button>
-                  </motion.div>
+                  </div>
                 ) : (
                   <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                     <div className="grid md:grid-cols-2 gap-6">
@@ -146,7 +127,7 @@ export default function RSVPPage() {
                         <input
                           {...register("name")}
                           type="text"
-                          className={`w-full border rounded-lg px-4 py-3 font-alice focus:outline-none focus:border-transparent transition-all bg-white/90 ${
+                          className={`w-full border rounded-lg px-4 py-3 font-alice focus:outline-none focus:border-transparent transition-all bg-white/90 text-black ${
                             errors.name ? 'border-red-500' : 'border-gray-300'
                           }`}
                           placeholder="Enter your full name"
@@ -160,7 +141,7 @@ export default function RSVPPage() {
                         <input
                           {...register("contactNumber")}
                           type="text"
-                          className={`w-full border rounded-lg px-4 py-3 font-alice focus:outline-none focus:border-transparent transition-all bg-white/90 ${
+                          className={`w-full border rounded-lg px-4 py-3 font-alice focus:outline-none focus:border-transparent transition-all bg-white/90 text-black ${
                             errors.contactNumber ? 'border-red-500' : 'border-gray-300'
                           }`}
                           placeholder="Enter your phone number"
@@ -175,7 +156,7 @@ export default function RSVPPage() {
                       <input
                         {...register("email")}
                         type="email"
-                        className={`w-full border rounded-lg px-4 py-3 font-alice focus:outline-none focus:border-transparent transition-all bg-white/90 ${
+                        className={`w-full border rounded-lg px-4 py-3 font-alice focus:outline-none focus:border-transparent transition-all bg-white/90 text-black ${
                           errors.email ? 'border-red-500' : 'border-gray-300'
                         }`}
                         placeholder="Enter your email address"
@@ -216,7 +197,7 @@ export default function RSVPPage() {
                       <label className="block text-mauve font-alice text-lg mb-2">Number of Guests:</label>
                       <select
                         {...register("numberOfGuests")}
-                        className={`w-full border rounded-lg px-4 py-3 font-alice focus:outline-none focus:border-transparent transition-all bg-white/90 ${
+                        className={`w-full border rounded-lg px-4 py-3 font-alice focus:outline-none focus:border-transparent transition-all bg-white/90 text-black ${
                           errors.numberOfGuests ? 'border-red-500' : 'border-gray-300'
                         }`}
                       >
@@ -237,7 +218,7 @@ export default function RSVPPage() {
                       </label>
                       <textarea
                         {...register("message")}
-                        className="w-full border border-gray-300 rounded-lg px-4 py-3 font-alice h-32 resize-none focus:outline-none focus:border-transparent transition-all bg-white/90"
+                        className="w-full border border-gray-300 rounded-lg px-4 py-3 font-alice h-32 resize-none focus:outline-none focus:border-transparent transition-all bg-white/90 text-black"
                         placeholder="Any dietary restrictions, special requests, or messages for the couple..."
                       ></textarea>
                     </div>
@@ -254,15 +235,10 @@ export default function RSVPPage() {
               </CardContent>
             </Card>
 
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.6 }}
-              className="mt-12 text-center"
-            >
+            <div className="mt-12 text-center">
                      <p className="font-alice text-lg text-dusty-pink">We can't wait to celebrate with you! 💕</p>
        <p className="font-alice text-2xl mt-4 text-dusty-pink">Jessa & Brian</p>
-            </motion.div>
+            </div>
           </div>
         </section>
       </div>

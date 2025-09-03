@@ -11,40 +11,25 @@ export default function HomePage() {
       {/* Main Content */}
       <div className="flex-1">
         {/* Simplified Hero Section */}
-        <section className="relative min-h-screen flex items-center justify-center pt-24 pb-12 px-4">
+        <section className="relative flex items-start justify-center pt-0 pb-8 px-4" style={{marginTop: '-20px', position: 'absolute', top: '100px', left: '0', right: '0', zIndex: '10'}}>
           {/* Simplified Hero Content - Only Essential Text */}
           <div className="relative z-10 text-center max-w-4xl mx-auto">
             {/* Together with their families */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="mb-16"
-            >
+            <div className="mb-1">
               <p className="font-serif-elegant text-gray-700 text-lg md:text-xl tracking-[0.2em] uppercase">
                 BY THE GRACE OF GOD AND TOGETHER WITH THEIR FAMILIES
               </p>
-            </motion.div>
+            </div>
 
             {/* Names - Only Jessa & Brian */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1, delay: 0.5 }}
-              className="mb-16"
-            >
+            <div className="mb-1">
               <h1 className="font-tan-aegean text-wedding-name-pink text-8xl md:text-9xl lg:text-[10rem] leading-tight text-center">
                 Jessa & Brian
               </h1>
-            </motion.div>
+            </div>
 
             {/* Moved and Enlarged Date Section */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.9 }}
-              className="mb-16"
-            >
+            <div className="mb-1">
               <div className="flex items-center justify-center space-x-8">
                 <div className="text-center">
                   
@@ -62,15 +47,10 @@ export default function HomePage() {
                   <p className="font-serif-elegant text-gray-700 text-xl tracking-widest uppercase">AT 09:00 AM</p>
                 </div>
               </div>
-            </motion.div>
+            </div>
 
             {/* Prenup Video Section */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.1 }}
-              className="mb-16"
-            >
+            <div className="mb-1">
               <div className="max-w-4xl mx-auto">
                 <h3 className="font-alice text-dusty-pink text-3xl font-semibold mb-6">OUR PRE-NUP VIDEO</h3>
                 <div className="w-full aspect-video rounded-lg overflow-hidden shadow-lg">
@@ -96,7 +76,7 @@ export default function HomePage() {
                       className="w-full h-full object-cover"
                       controls
                       playsInline
-                      poster="/PRENUP photo.jpg"
+                      poster="/PRENUP PHOTO.jpg"
                     >
                       <source src="/videos/prenup-photo.mp4" type="video/mp4" />
                       Your browser does not support the video tag.
@@ -104,7 +84,7 @@ export default function HomePage() {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </div>
 
           </div>
         </section>

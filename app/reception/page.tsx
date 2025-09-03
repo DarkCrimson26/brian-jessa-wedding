@@ -33,25 +33,15 @@ export default function ReceptionPage() {
         {/* Reception Section */}
         <section className="py-24 bg-dusty-pink-page relative min-h-screen">
           <div className="max-w-6xl mx-auto px-6 pt-16 lg:pt-0">
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1 }}
-              className="text-center mb-16"
-            >
+            <div className="text-center mb-16">
               <h1 className="font-script text-dusty-pink text-7xl mb-6">Reception</h1>
               <div className="elegant-dusty-pink-divider">
                 <div className="elegant-dusty-pink-divider-icon"></div>
               </div>
-            </motion.div>
+            </div>
 
             {/* Glass Garden Image */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1, delay: 0.3 }}
-              className="mb-12"
-            >
+            <div className="mb-12">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <img src="/glass-garden-venue.png" alt="Glass Garden Events" className="w-full h-96 object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
@@ -59,7 +49,7 @@ export default function ReceptionPage() {
                   <h3 className="font-serif-elegant text-2xl font-semibold drop-shadow-lg">Glass Garden Events</h3>
                 </div>
               </div>
-            </motion.div>
+            </div>
 
             <Card className="elegant-card p-10 relative max-w-4xl mx-auto">
               <CardContent className="space-y-8 text-center">

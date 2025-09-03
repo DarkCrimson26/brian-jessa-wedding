@@ -299,7 +299,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 2rem 4rem;
+  padding: 0.05rem 0.5rem;
   background: #fff;
   font-family: 'Montserrat', 'Lato', 'Open Sans', sans-serif;
   letter-spacing: 0.08em;

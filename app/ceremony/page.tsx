@@ -31,25 +31,15 @@ export default function CeremonyPage() {
         {/* Ceremony Section */}
         <section className="py-24 bg-dusty-pink-page relative dusty-pink-accent-top dusty-pink-accent-bottom min-h-screen">
           <div className="max-w-6xl mx-auto px-6 pt-16 lg:pt-0">
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1 }}
-              className="text-center mb-16"
-            >
+            <div className="text-center mb-16">
               <h1 className="font-alice text-dusty-pink text-7xl mb-6">Ceremony</h1>
               <div className="elegant-dusty-pink-divider">
                 <div className="elegant-dusty-pink-divider-icon"></div>
               </div>
-            </motion.div>
+            </div>
 
             {/* Church Image */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1, delay: 0.3 }}
-              className="mb-12"
-            >
+            <div className="mb-12">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <img
                   src="/christ-the-king-church.jpg"
@@ -63,7 +53,7 @@ export default function CeremonyPage() {
                   </h3>
                 </div>
               </div>
-            </motion.div>
+            </div>
 
             <div className="grid lg:grid-cols-1 gap-12">
               {" "}

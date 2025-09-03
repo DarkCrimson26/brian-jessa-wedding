@@ -1,25 +1,14 @@
 services:
   - type: web
     name: wedding-website
-    runtime: node
+    runtime: static
     plan: free
     buildCommand: |
-      echo "Current directory: $(pwd)"
-      echo "Listing files:"
-      ls -la
-      echo "Running verification script..."
-      node verify-structure.js
-      echo "Installing dependencies..."
       npm install --legacy-peer-deps
-      echo "Building project..."
       npm run build
-    startCommand: npm start
+      cp -r out/* .
     envVars:
-      - key: NODE_ENV
-        value: production
       - key: COUPLE_EMAIL
         value: wong.jennicaarah@gmail.com
-      - key: PORT
-        value: 10000
     healthCheckPath: /
     autoDeploy: true

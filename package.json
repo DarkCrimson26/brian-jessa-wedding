@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "next build",
-    "dev": "npx next dev", 
-    "lint": "npx next lint",
-    "start": "npx next start"
+    "build": "node \"node_modules/next/dist/bin/next\" build --no-lint",
+    "dev": "node \"node_modules/next/dist/bin/next\" dev", 
+    "lint": "node \"node_modules/next/dist/bin/next\" lint",
+    "start": "node \"node_modules/next/dist/bin/next\" start"
   },
   "dependencies": {
     "@emotion/is-prop-valid": "latest",

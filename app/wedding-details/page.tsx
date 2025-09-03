@@ -13,12 +13,7 @@ export default function WeddingDetailsPage() {
         {/* Wedding Details Section */}
         <section className="py-24 bg-dusty-pink-page relative dusty-pink-accent-top dusty-pink-accent-bottom min-h-screen">
           <div className="max-w-4xl mx-auto px-6 pt-16 lg:pt-0">
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1 }}
-              className="text-center mb-16"
-            >
+            <div className="text-center mb-16">
               {/* The Finer Details Title */}
               <div className="mb-8 w-full text-center -mt-4">
                 <h1 className="font-alice text-dusty-pink text-6xl font-semibold mb-6">The Finer Details</h1>
@@ -26,15 +21,10 @@ export default function WeddingDetailsPage() {
                 <div className="elegant-dusty-pink-divider-icon"></div>
                 </div>
               </div>
-            </motion.div>
+            </div>
 
             {/* Unified Content Block */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.3 }}
-              className="elegant-card p-10 relative space-y-12 text-mauve"
-            >
+            <div className="elegant-card p-10 relative space-y-12 text-mauve">
               {/* Finer Details Image */}
               <div className="mb-8 w-full flex justify-center">
                 <img src="/ABCD1.jpg" alt="The Finer Details" className="w-full max-w-5xl h-auto shadow-lg rounded-lg" />
@@ -125,7 +115,7 @@ export default function WeddingDetailsPage() {
                 </div>
               </div>
 
-            </motion.div>
+            </div>
           </div>
         </section>
       </div>
