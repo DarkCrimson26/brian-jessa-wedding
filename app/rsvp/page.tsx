@@ -8,6 +8,7 @@ import Link from "next/link"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
+import emailjs from '@emailjs/browser'
 
 // RSVP Form Validation Schema
 const rsvpSchema = z.object({
@@ -40,27 +41,27 @@ export default function RSVPPage() {
   const onSubmit = async (data: RSVPFormData) => {
     setIsSubmitting(true)
     try {
-      // Create email content
-      const emailContent = `
-New RSVP from Wedding Website:
-
-Name: ${data.name}
-Contact Number: ${data.contactNumber}
-Email: ${data.email}
-Attending: ${data.attending}
-Number of Guests: ${data.numberOfGuests}
-Message: ${data.message || 'No message'}
-
-Submitted on: ${new Date().toLocaleString()}
-      `.trim()
-
-      // Use mailto link to open email client
-      const subject = encodeURIComponent(`New RSVP from ${data.name}`)
-      const body = encodeURIComponent(emailContent)
-      const mailtoLink = `mailto:melvin.bagnes@intouchcx.com?subject=${subject}&body=${body}`
+      // Initialize EmailJS
+      emailjs.init('YOUR_EMAILJS_PUBLIC_KEY')
       
-      // Open email client
-      window.open(mailtoLink)
+      // Email template parameters
+      const templateParams = {
+        to_email: 'briantams31@gmail.com', // Groom's email
+        from_name: data.name,
+        from_email: data.email,
+        contact_number: data.contactNumber,
+        attending: data.attending,
+        number_of_guests: data.numberOfGuests,
+        message: data.message || 'No message',
+        submission_date: new Date().toLocaleString()
+      }
+
+      // Send email using EmailJS
+      await emailjs.send(
+        'YOUR_SERVICE_ID',
+        'YOUR_TEMPLATE_ID',
+        templateParams
+      )
       
       // Show success message
       setSubmitSuccess(true)
@@ -116,7 +117,11 @@ Submitted on: ${new Date().toLocaleString()}
                     </button>
                   </div>
                 ) : (
-                  <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                  <form onSubmit={handleSubmit(onSubmit)} className="space-y-6" name="rsvp-form" data-netlify="true" data-netlify-honeypot="bot-field">
+                    <input type="hidden" name="form-name" value="rsvp-form" />
+                    <div style={{display: 'none'}}>
+                      <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+                    </div>
                     <div className="grid md:grid-cols-2 gap-6">
                       <div>
                         <label className="block text-mauve font-alice text-lg mb-2">Name:</label>

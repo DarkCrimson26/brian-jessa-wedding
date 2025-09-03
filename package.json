@@ -4,11 +4,12 @@
   "private": true,
   "scripts": {
     "build": "node \"node_modules/next/dist/bin/next\" build --no-lint",
-    "dev": "node \"node_modules/next/dist/bin/next\" dev", 
+    "dev": "node \"node_modules/next/dist/bin/next\" dev",
     "lint": "node \"node_modules/next/dist/bin/next\" lint",
     "start": "node \"node_modules/next/dist/bin/next\" start"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@emotion/is-prop-valid": "latest",
     "@hookform/resolvers": "^3.9.1",
     "@radix-ui/react-accordion": "1.2.2",
