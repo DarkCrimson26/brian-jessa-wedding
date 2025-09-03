@@ -40,19 +40,20 @@ export default function RSVPPage() {
   const onSubmit = async (data: RSVPFormData) => {
     setIsSubmitting(true)
     try {
-      // Use Formspree for form submissions
-      const endpoint = 'https://formspree.io/f/xwpnwegp'
+      // Use Netlify Forms for form submissions
+      const formData = new FormData()
+      formData.append('form-name', 'rsvp')
+      formData.append('name', data.name)
+      formData.append('contactNumber', data.contactNumber)
+      formData.append('email', data.email)
+      formData.append('attending', data.attending)
+      formData.append('numberOfGuests', data.numberOfGuests)
+      formData.append('message', data.message || '')
       
-      const response = await fetch(endpoint, {
+      const response = await fetch('/', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          ...data,
-          _subject: `New RSVP from ${data.name}`,
-          _captcha: false,
-        }),
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData as any).toString(),
       })
 
       if (response.ok) {
@@ -120,7 +121,8 @@ export default function RSVPPage() {
                     </button>
                   </div>
                 ) : (
-                  <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                  <form onSubmit={handleSubmit(onSubmit)} className="space-y-6" name="rsvp" data-netlify="true" data-netlify-honeypot="bot-field">
+                    <input type="hidden" name="form-name" value="rsvp" />
                     <div className="grid md:grid-cols-2 gap-6">
                       <div>
                         <label className="block text-mauve font-alice text-lg mb-2">Name:</label>
