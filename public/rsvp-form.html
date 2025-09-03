@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RSVP Form</title>
+</head>
+<body>
+    <form name="rsvp" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="rsvp" />
+        <input type="hidden" name="to" value="melvin.bagnes@intouchcx.com" />
+        
+        <p style="display: none;">
+            <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+        </p>
+        
+        <p>
+            <label>Name: <input type="text" name="name" required /></label>
+        </p>
+        
+        <p>
+            <label>Contact Number: <input type="text" name="contactNumber" required /></label>
+        </p>
+        
+        <p>
+            <label>Email: <input type="email" name="email" required /></label>
+        </p>
+        
+        <p>
+            <label>Attending: 
+                <select name="attending" required>
+                    <option value="">Select...</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+            </label>
+        </p>
+        
+        <p>
+            <label>Number of Guests: 
+                <select name="numberOfGuests" required>
+                    <option value="">Select...</option>
+                    <option value="1">1 Guest</option>
+                    <option value="2">2 Guests</option>
+                    <option value="3">3 Guests</option>
+                    <option value="4">4 Guests</option>
+                    <option value="5">5+ Guests</option>
+                </select>
+            </label>
+        </p>
+        
+        <p>
+            <label>Message: <textarea name="message"></textarea></label>
+        </p>
+        
+        <p>
+            <button type="submit">Send RSVP</button>
+        </p>
+    </form>
+</body>
+</html>
